@@ -37,7 +37,6 @@ class Tag(Base):
         Integer, primary_key=True, autoincrement=True
     )
     name: Mapped[str] = mapped_column(String(100), unique=True, nullable=False)
-
     products: Mapped[List["Product"]] = relationship(
         secondary=product_tags, back_populates="tags"
     )
