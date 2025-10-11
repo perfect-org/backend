@@ -2,7 +2,7 @@ name: Lint_deploy
 on: push
 jobs:
   lint:
-    runs_on: windows
+    runs-on: windows
     steps:
       - name: Checkout
         uses: actions/checkout@v3
