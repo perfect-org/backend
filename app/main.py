@@ -25,7 +25,9 @@ async def lifespan(app: FastAPI):
 
 
 def create_app() -> FastAPI:
-    application = FastAPI(title="VitaminBox", lifespan=lifespan, version="1.0.0")
+    application = FastAPI(
+        title="VitaminBox", lifespan=lifespan, version="1.0.0"
+    )
 
     application.add_middleware(
         CORSMiddleware,

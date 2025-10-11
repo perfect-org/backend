@@ -1,4 +1,12 @@
-from .user import Token, TokenData, UserCreate, UserOut, UserAuth, AdminCreate, UserUpdate
+from .user import (
+    Token,
+    TokenData,
+    UserCreate,
+    UserOut,
+    UserAuth,
+    AdminCreate,
+    UserUpdate,
+)
 from .user_form import (
     UserFormOut,
     UserFormCreate,

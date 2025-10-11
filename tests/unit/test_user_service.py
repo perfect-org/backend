@@ -49,7 +49,9 @@ class TestUserServiceRegister:
         fake_repo.create.return_value = orm_user
 
         svc = UserService(repository=fake_repo)
-        payload = UserCreate(email="a@b.com", name="nice", password="secret123")
+        payload = UserCreate(
+            email="a@b.com", name="nice", password="secret123"
+        )
 
         out = await svc.register(payload)
 

@@ -74,7 +74,6 @@ class UserCreate(UserBase):
     )
 
 
-
 class UserUpdate(BaseModel):
     name: Optional[str] = Field(
         None,
@@ -130,11 +129,10 @@ class UserUpdate(BaseModel):
                 "name": "Иван",
                 "email": "ivan.new@example.com",
                 "password": "newPassword123",
-                "role": "user"
+                "role": "user",
             }
         }
     )
-
 
 
 class AdminCreate(UserCreate):

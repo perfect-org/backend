@@ -74,11 +74,15 @@ async def get_all_orders(
     },
 )
 async def modify_cart(
-        product_id: int,
-        action: str = Query(default="add", description="Действие: add, remove или set"),
-        quantity: int = Query(default=1, description="Количество (требуется для add/set)"),
-        current_user: UserOut = Depends(get_current_user),
-        service: OrderService = Depends(get_order_service),
+    product_id: int,
+    action: str = Query(
+        default="add", description="Действие: add, remove или set"
+    ),
+    quantity: int = Query(
+        default=1, description="Количество (требуется для add/set)"
+    ),
+    current_user: UserOut = Depends(get_current_user),
+    service: OrderService = Depends(get_order_service),
 ):
     try:
         result = await service.modify_cart_item(
@@ -88,7 +92,9 @@ async def modify_cart(
             quantity=quantity,
         )
 
-        status_code = status.HTTP_201_CREATED if action == "add" else status.HTTP_200_OK
+        status_code = (
+            status.HTTP_201_CREATED if action == "add" else status.HTTP_200_OK
+        )
         return JSONResponse(
             content=jsonable_encoder(result),
             status_code=status_code,
@@ -104,6 +110,7 @@ async def modify_cart(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail=str(e),
         )
+
 
 @router.post(
     "/cart/apply-promo",
